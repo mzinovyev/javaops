@@ -1,1 +1,1 @@
-# javaops
+Execises from javaops course
