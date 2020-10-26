@@ -13,11 +13,11 @@ public class ConditionalStatement {
 			System.out.println("Person sex is Man");
 		}
 
-		if (!(personSex == 'M'))  {
+		if !(personSex == 'M') {
 			System.out.println("Person sex is Wooman");
 		}
 
-		if ( personHeight < 1.80) {
+		if (personHeight < 1.80) {
 			System.out.println("Person height is less then 180 cm");
 		} else {
 			System.out.println("Person height is equal or above then 180 cm");
@@ -31,4 +31,4 @@ public class ConditionalStatement {
 			System.out.println("Person name first letter is neither 'M' nor 'I' ");
 		}
 	}
-};
+}
