@@ -13,7 +13,7 @@ public class ConditionalStatement {
 			System.out.println("Person sex is Man");
 		}
 
-		if !(personSex == 'M') {
+		if (personSex != 'M') {
 			System.out.println("Person sex is Wooman");
 		}
 
