@@ -19,7 +19,7 @@ public class Cycle {
 			if (counter % 2 == 0) {
 				sum += counter;
 			}
-			counter += 1;
+			counter++;
 		} while (counter < 21);
 		System.out.println(sum);
 	}
