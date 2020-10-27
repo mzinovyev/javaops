@@ -1,6 +1,6 @@
 public class ConditionalStatement {
-	public static void main (String[] args) {
-
+	public static void main(String[] args) { // !-- После ф-ии не ставить пробел
+// !-- Не ставить строки после переменных
 		byte age = 35;
 		if (age > 20) {
 			System.out.println("Person age is above 20 years");
