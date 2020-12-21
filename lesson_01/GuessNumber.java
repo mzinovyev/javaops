@@ -7,7 +7,8 @@ public class GuessNumber {
 		// псевдослучайное число (0..100]
 		long secretNum = System.currentTimeMillis() % 99L + 1;
 		System.out.println("---------------------------------");
-		System.out.println("Загаданное число: " + Long.toString(secretNum));
+		//System.out.println("Загаданное число: " + Long.toString(secretNum));
+		System.out.println("Загаданное число: " + secretNum);
 
 		float startRange = 0F;
 		// конец отрезка
@@ -17,8 +18,8 @@ public class GuessNumber {
 
 		while (true) {
 			// при поиске числа, кажый раз определяем в какой половине ряда находится число
-			System.out.println("\nЭто число: " + Long.toString((long)userNum) + "?" + "  (" + Float.toString(userNum) + ")\n");
-			if ((long)userNum == secretNum) {
+			System.out.println("\nЭто число: " + Long.toString((long) userNum) + "?" + "  (" + Float.toString(userNum) + ")\n");
+			if ((long) userNum == secretNum) {
 				System.out.println("Вы угадали!");
 				break;
 			} else if (secretNum > userNum) {
@@ -34,11 +35,11 @@ public class GuessNumber {
 				// В след. раз берем число N из верхнгего интервала чисел startRange---N---|-------endRange
 				endRange = userNum;
 			}
-			userNum = startRange + ((endRange-startRange) / 2);
+			userNum = startRange + (( endRange-startRange ) / 2);
 		}
 	}
 
-	public static void printSection (float a, float b, float userNum, char sign) {
+	public static void printSection(float a, float b, float userNum, char sign) {
 		// для удобства отладки, функция печатет в какой части отрезка мы ищем число
 		String side = "Левой";
 		String leftSide = "---------| ";
