@@ -11,16 +11,14 @@ public class GuessNumber {
 		System.out.println("Загаданное число: " + secretNum);
 
 		float startRange = 0F;
-		// конец отрезка
 		float endRange = 100F;
 		// середина отрезка - вводится чтобы угадать искомое
 		float userNum = 50;
 
 		while (true) {
 			// при поиске числа, кажый раз определяем в какой половине ряда находится число
-			System.out.println("\nЭто число: " + Long.toString((long) userNum) + "?" + "  (" + Float.toString(userNum) + ")\n");
+			System.out.println("\nЭто число: " + (long) userNum + "?" + "  (" + userNum + ")\n");
 			if ((long) userNum == secretNum) {
-				System.out.println("Вы угадали!");
 				break;
 			} else if (secretNum > userNum) {
 				System.out.println("Введенное число меньше загаданного компьютером");
@@ -35,8 +33,9 @@ public class GuessNumber {
 				// В след. раз берем число N из верхнгего интервала чисел startRange---N---|-------endRange
 				endRange = userNum;
 			}
-			userNum = startRange + (( endRange-startRange ) / 2);
+			userNum = startRange + ((endRange - startRange) / 2);
 		}
+		System.out.println("Вы угадали!");
 	}
 
 	public static void printSection(float a, float b, float userNum, char sign) {
@@ -50,11 +49,9 @@ public class GuessNumber {
 		} else if (sign == '<') {
 			side = "Левой";
 			leftSide = "----X----| ";
-		} else {
-			System.out.println("Неверный параметр sign");
-		}
+		} 
 		System.out.print("Иcкомое число в " + side + " части отрезка ");
-		System.out.println(Float.toString(a) + leftSide + Long.toString((long) userNum) + rightSide + Float.toString(b));
+		System.out.println(a + leftSide + (long) userNum + rightSide + b);
 	}	
 }
 
