@@ -1,10 +1,10 @@
 class Person {
-	
-	char sex;
-	String name;
-	short height;
-	short weight;
-	short age;
+
+	char sex = 'M';
+	String name = "Sam";
+	short height = 180;
+	short weight = 80;
+	short age = 40;
 
 	public void walk() {
 
