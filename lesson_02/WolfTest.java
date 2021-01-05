@@ -1,7 +1,6 @@
 public class WolfTest {
 
-	public static void main (String[] args) {
-
+	public static void main(String[] args) {
 		Wolf akella = new Wolf();
 
 		akella.sex = 'M';
