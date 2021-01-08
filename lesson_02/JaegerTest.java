@@ -1,12 +1,4 @@
 public class JaegerTest {
-	protected static void testJaeger(Jaeger j) {
-		System.out.println("---Start testing jaeger---");
-		System.out.println("lounch jaeger " + j.getModelName());
-		j.drift();
-		j.move();
-		j.useWeapon();		
-	}
-
 	public static void main(String[] args) {
 		Jaeger j1 = new Jaeger();
 		j1.setModelName("Striker Eureka");
@@ -37,4 +29,11 @@ public class JaegerTest {
 		testJaeger(j1);
 		testJaeger(j2);
 	}
+	static void testJaeger(Jaeger j) {
+		System.out.println("---Start testing jaeger---");
+		System.out.println("lounch jaeger " + j.getModelName());
+		j.drift();
+		j.move();
+		j.useWeapon();		
+	}	
 }
