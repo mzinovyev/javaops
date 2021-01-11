@@ -3,44 +3,47 @@ import java.util.Scanner;
 
 public class GuessNumber {
 	private int secretNum;
-	private Player[] players;
+	private Player player1;
+	private Player player2;
 
-	public GuessNumber(long seed, int numOfPlayers) {
-		Random rnd = new Random(seed);
-		secretNum = rnd.nextInt(100) + 1;
-		players = new Player[numOfPlayers];
+	public GuessNumber(Player player1, Player player2) {
+		this.player1 = player1;
+		this.player2 = player2;
 	}
 
-	public void startGame() {
-		initPlayers();
+	public void start() {
+		Random rnd = new Random(System.currentTimeMillis());
+		secretNum = rnd.nextInt(100) + 1;
 		String winner = "";
 		do {
-			for (int i=0; i<players.length; i++) {
-				players[i].setNumber();
-				if (checkSecretNum(players[i].getNumber())) {
-					winner = players[i].getName();
-					break;
-				}
+			if (checkPlayer(player1)) {
+				winner = player1.getName();
+				break;
+			} else if (checkPlayer(player2)) {
+				winner = player2.getName();
 			}
 		} while (winner.equals(""));
-		System.out.println("Победил игрок" + winner);
+		System.out.println("Победил игрок " + winner);
 	}
 
-	private void initPlayers() {
-		Scanner scan = new Scanner(System.in);
-		for (int i=0; i<players.length; i++) {
-			System.out.print("Введите имя игрока " + i + ": ");
-			players[i] = new Player(scan.nextLine());
-		}
-	}	
-
-	public boolean checkSecretNum(int num) {
+	private boolean checkSecretNum(int num) {
 		if (num == secretNum) {
 			return true;
 		} else if (num > secretNum) {
 			System.out.println("Загадочное число меньше " + num);
 		} else {
 			System.out.println("Загадочное число больше " + num);
+		}
+		return false;
+	}
+
+	// Если игорок угадал число возвращаем true
+	private boolean checkPlayer(Player player) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print(player.getName() + " введите загаданное число: ");
+		player.setNumber(scan.nextInt());
+		if (checkSecretNum(player.getNumber())) {
+			return true;
 		}
 		return false;
 	}

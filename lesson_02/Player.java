@@ -12,10 +12,8 @@ public class Player {
 		return name;
 	}
 
-	public void setNumber() {
-		Scanner scan = new Scanner(System.in);
-		System.out.print(name + " введите загаданное число: ");
-		number = scan.nextInt();
+	public void setNumber(int number) {
+		this.number = number;
 	}
 	
 	public int getNumber() {
