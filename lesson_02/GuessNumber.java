@@ -19,14 +19,16 @@ public class GuessNumber {
 			if (checkPlayer(player1)) {
 				winner = player1.getName();
 				break;
-			} else if (checkPlayer(player2)) {
-				winner = player2.getName();
 			}
-		} while (winner.equals(""));
+			if (checkPlayer(player2)) {
+				winner = player2.getName();
+				break;
+			}
+		} while (true);
 		System.out.println("Победил игрок " + winner);
 	}
 
-	private boolean checkSecretNum(int num) {
+	private boolean checkNumber(int num) {
 		if (num == secretNum) {
 			return true;
 		} else if (num > secretNum) {
@@ -39,12 +41,15 @@ public class GuessNumber {
 
 	// Если игорок угадал число возвращаем true
 	private boolean checkPlayer(Player player) {
-		Scanner scan = new Scanner(System.in);
-		System.out.print(player.getName() + " введите загаданное число: ");
-		player.setNumber(scan.nextInt());
-		if (checkSecretNum(player.getNumber())) {
+		inputNumber(player);
+		if (checkNumber(player.getNumber())) {
 			return true;
 		}
 		return false;
+	}
+	private void inputNumber(PLayer player) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print(player.getName() + " введите загаданное число: ");
+		player.setNumber(scan.nextInt());		
 	}
 }
