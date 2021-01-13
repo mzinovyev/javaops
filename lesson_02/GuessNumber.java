@@ -16,11 +16,11 @@ public class GuessNumber {
 		secretNum = rnd.nextInt(100) + 1;
 		String winner = "";
 		do {
-			if (checkPlayer(player1)) {
+			if (makeMoove(player1)) {
 				winner = player1.getName();
 				break;
 			}
-			if (checkPlayer(player2)) {
+			if (makeMoove(player2)) {
 				winner = player2.getName();
 				break;
 			}
@@ -39,15 +39,16 @@ public class GuessNumber {
 		return false;
 	}
 
-	// Если игорок угадал число возвращаем true
-	private boolean checkPlayer(Player player) {
+	// Игорок делает свой ход в игре, если угадал число - возвращаем true
+	private boolean makeMoove(Player player) {
 		inputNumber(player);
 		if (checkNumber(player.getNumber())) {
 			return true;
 		}
 		return false;
 	}
-	private void inputNumber(PLayer player) {
+
+	private void inputNumber(Player player) {
 		Scanner scan = new Scanner(System.in);
 		System.out.print(player.getName() + " введите загаданное число: ");
 		player.setNumber(scan.nextInt());		
