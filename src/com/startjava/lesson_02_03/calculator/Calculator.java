@@ -1,3 +1,5 @@
+package com.startjava.lesson_02_03.calculator;
+
 public class Calculator {
 	public long calculate(int num1, char operation, int num2) {
 		switch(operation) {

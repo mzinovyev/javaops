@@ -1,3 +1,5 @@
+package com.startjava.lesson_02_03.firstobj;
+
 class Person {
 
 	char sex = 'M';

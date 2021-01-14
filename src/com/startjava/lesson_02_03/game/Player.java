@@ -1,3 +1,5 @@
+package com.startjava.lesson_02_03.game;
+
 import java.util.Scanner;
 
 public class Player {

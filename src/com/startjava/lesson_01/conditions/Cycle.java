@@ -1,3 +1,5 @@
+package com.startjava.lesson_01.conditions;
+
 public class Cycle {
 	public static void main(String[] args) {
 		// printing digits from 0 to 20

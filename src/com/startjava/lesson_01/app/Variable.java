@@ -1,3 +1,5 @@
+package com.startjava.lesson_01.app;
+
 public class Variable {
 	public static void main(String[] args) {
 		// 1  bit

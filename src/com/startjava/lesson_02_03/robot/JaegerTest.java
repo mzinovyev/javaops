@@ -1,3 +1,5 @@
+package com.startjava.lesson_02_03.robot;
+
 public class JaegerTest {
 	public static void main(String[] args) {
 		Jaeger j1 = new Jaeger();

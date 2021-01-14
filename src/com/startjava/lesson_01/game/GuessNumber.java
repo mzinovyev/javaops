@@ -1,3 +1,5 @@
+package com.startjava.lesson_01.game;
+
 public class GuessNumber {
 	// интервал цифр (0, 100] представляем в виде отрезка
 	// с началльной координатой 0 и конечно 100

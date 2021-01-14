@@ -1,3 +1,5 @@
+package com.startjava.lesson_01.conditions;
+
 public class ConditionalStatement {
 	public static void main(String[] args) { // !-- После ф-ии не ставить пробел
 // !-- Не ставить строки после переменных

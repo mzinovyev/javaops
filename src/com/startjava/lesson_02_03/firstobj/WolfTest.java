@@ -1,3 +1,5 @@
+package com.startjava.lesson_02_03.firstobj;
+
 public class WolfTest {
 
 	public static void main(String[] args) {
