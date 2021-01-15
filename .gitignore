@@ -2,3 +2,4 @@
 # https://ru.hexlet.io/courses/git_base/lessons/git_gitignore/theory_unit
 #*.class
 out
+/javaops.iml

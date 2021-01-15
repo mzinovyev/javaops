@@ -1,4 +1,4 @@
-package com.startjava.lesson_02_03.firstobj;
+package com.startjava.lesson_02_03_04.firstobj;
 
 class Person {
 

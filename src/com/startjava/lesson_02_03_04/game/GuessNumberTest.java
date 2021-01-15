@@ -1,4 +1,4 @@
-package com.startjava.lesson_02_03.game;
+package com.startjava.lesson_02_03_04.game;
 
 import java.util.Scanner;
 

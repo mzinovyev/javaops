@@ -1,4 +1,4 @@
-package com.startjava.lesson_02_03.calculator;
+package com.startjava.lesson_02_03_04.calculator;
 
 import java.util.Scanner;
 
@@ -7,17 +7,13 @@ public class CalculatorTest {
 		String answer = "нет";
 		do {
 			Scanner scan = new Scanner(System.in);
-			System.out.print("Введите первое число: ");
-			int num1 = scan.nextInt();
-
-			System.out.print("Введите знак математической операции: ");
-			char operation = scan.next().charAt(0);
-
-			System.out.print("Введите второе число: ");
-			int num2 = scan.nextInt();
+			System.out.print("Введите операнды и операцию разделяя пробелом (напр: 1 + 1): ");
+			String expression = scan.nextLine();
+			String[] exprArr = new String[expression.length()];
+			exprArr = expression.split(" ");
 
 			Calculator calc = new Calculator();
-			System.out.println(calc.calculate(num1, operation, num2));
+			System.out.println(calc.calculate(exprArr));
 
 			do {
 				System.out.print("Хотите продолжить вычисления? [да/нет]: ");
