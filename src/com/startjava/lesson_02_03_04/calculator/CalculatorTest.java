@@ -9,11 +9,8 @@ public class CalculatorTest {
 			Scanner scan = new Scanner(System.in);
 			System.out.print("Введите операнды и операцию разделяя пробелом (напр: 1 + 1): ");
 			String expression = scan.nextLine();
-			String[] exprArr = new String[expression.length()];
-			exprArr = expression.split(" ");
-
 			Calculator calc = new Calculator();
-			System.out.println(calc.calculate(exprArr));
+			System.out.println(calc.calculate(expression));
 
 			do {
 				System.out.print("Хотите продолжить вычисления? [да/нет]: ");
