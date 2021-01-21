@@ -5,12 +5,11 @@ import java.util.Arrays;
 public class Player {
 	private String name;
 	private int[] numbers;
-	private int nextIndex; //индекс последнего введенного числа
+	private int attemptCount; //кол-во поптыок = индекс последнего введенного числа
 
 	public Player(String name) {
 		this.name = name;
-		numbers = new int[3];
-		nextIndex = 0;
+		numbers = new int[10];
 	}
 
 	public String getName() {
@@ -18,18 +17,20 @@ public class Player {
 	}
 
 	public void addNumber(int number) {
-		numbers[nextIndex++] = number;
+		numbers[attemptCount++] = number;
 	}
 	
 	public int getLastNumber() {
-		return numbers[nextIndex-1];
+		return numbers[attemptCount - 1];
 	}
+
 	// Возвращает кол-во чисел загаданных игороком
 	public int getAttemptCount() {
-		return nextIndex;
+		return attemptCount;
 	}
+
 	// Возвращает список чисел
-	public int[] getAttempts() {
-		return Arrays.copyOf(numbers, nextIndex);
+	public int[] getNumbers() {
+		return Arrays.copyOf(numbers, attemptCount);
 	}
 }

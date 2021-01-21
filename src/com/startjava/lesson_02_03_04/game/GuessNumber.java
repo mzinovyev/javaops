@@ -10,10 +10,12 @@ public class GuessNumber {
 	private int secretNum;
 	private Player player1;
 	private Player player2;
+	private int rounds;
 
-	public GuessNumber(Player player1, Player player2) {
+	public GuessNumber(Player player1, Player player2, int rounds ) {
 		this.player1 = player1;
 		this.player2 = player2;
+		this.rounds = rounds;
 	}
 
 	public void start() {
@@ -22,48 +24,51 @@ public class GuessNumber {
 		// Для отладки выводит секретное число
 		System.out.println("Загаданное число: " + secretNum);
 		System.out.println("У Вас 10 попыток чтобы угадать число");
-		for (int i = 0; i < 3; i++) {
-			if (makeMoove(player1)) {
+		for (int i = 0; i < rounds; i++) {
+			if (makeMove(player1)) {
 				break;
 			}
-			if (makeMoove(player2)) {
+			if (makeMove(player2)) {
 				break;
 			}
 		}
-		System.out.println(Arrays.toString(player1.getAttempts()));
-		System.out.println(Arrays.toString(player2.getAttempts()));
+		prIntArray(player1.getNumbers());
+		prIntArray(player2.getNumbers());
 	}
 
 	private boolean checkNumber(int num) {
-		if (num == secretNum) {
-			return true;
-		} else if (num > secretNum) {
-			System.out.println("Загадочное число меньше " + num);
-		} else {
-			System.out.println("Загадочное число больше " + num);
-		}
+		if (num == secretNum) { return true; }
+		System.out.println(num > secretNum ? "Загадочное число меньше " + num : "Загадочное число больше " + num);
 		return false;
 	}
+
 	// Игорок делает свой ход в игре, если угадал число - возвращаем true
-	private boolean makeMoove(Player player) {
+	private boolean makeMove(Player player) {
 		inputNumber(player);
 		if (checkNumber(player.getLastNumber())) {
 			System.out.println("Игрок " + player.getName() + " угадал число " + player.getLastNumber() + " c " + player.getAttemptCount() + " попытки");
 			return true;
 		}
-		if (player.getAttemptCount() == 3) {
+		if (player.getAttemptCount() == rounds) {
 			System.out.println("У " + player.getName() + " закончились попытки");
 		}
 		return false;
 	}
+
 	// Запрашивает число у игрока пока есть попытки
 	private void inputNumber(Player player) {
-		if (player.getAttemptCount() <= 3) {
-			Scanner scan = new Scanner(System.in);
-			System.out.print(player.getName() + " введите загаданное число: ");
-			player.addNumber(scan.nextInt());
-		} else {
-			System.out.println("У " + player.getName() + " закончились попытки");
+		Scanner scan = new Scanner(System.in);
+		System.out.print(player.getName() + " введите загаданное число: ");
+		player.addNumber(scan.nextInt());
+	}
+
+	private void prIntArray(int[] arr) {
+		for(int i = 0; i < arr.length; i++) {
+			if (i != 0) {
+				System.out.print(" ");
+			}
+			System.out.print(arr[i]);
 		}
+		System.out.print("\n");
 	}
 }

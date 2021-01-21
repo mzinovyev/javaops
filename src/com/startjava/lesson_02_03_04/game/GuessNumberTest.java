@@ -12,7 +12,7 @@ public class GuessNumberTest {
 			System.out.print("Введите имя игрока 2: ");
 			Player player2 = new Player(scan.nextLine());			
 
-			GuessNumber game = new GuessNumber(player1, player2);
+			GuessNumber game = new GuessNumber(player1, player2, 10);
 			game.start();
 			do {
 				System.out.print("Хотите продолжить игру? [да/нет]: ");
