@@ -12,7 +12,7 @@ public class GuessNumber {
 	private Player player2;
 	private int rounds;
 
-	public GuessNumber(Player player1, Player player2, int rounds ) {
+	public GuessNumber(Player player1, Player player2, int rounds) {
 		this.player1 = player1;
 		this.player2 = player2;
 		this.rounds = rounds;
@@ -32,14 +32,8 @@ public class GuessNumber {
 				break;
 			}
 		}
-		prIntArray(player1.getNumbers());
-		prIntArray(player2.getNumbers());
-	}
-
-	private boolean checkNumber(int num) {
-		if (num == secretNum) { return true; }
-		System.out.println(num > secretNum ? "Загадочное число меньше " + num : "Загадочное число больше " + num);
-		return false;
+		printEnteredNumbers(player1.getNumbers());
+		printEnteredNumbers(player2.getNumbers());
 	}
 
 	// Игорок делает свой ход в игре, если угадал число - возвращаем true
@@ -62,13 +56,17 @@ public class GuessNumber {
 		player.addNumber(scan.nextInt());
 	}
 
-	private void prIntArray(int[] arr) {
-		for(int i = 0; i < arr.length; i++) {
-			if (i != 0) {
-				System.out.print(" ");
-			}
-			System.out.print(arr[i]);
+	private boolean checkNumber(int num) {
+		if (num == secretNum) return true;
+		System.out.println("Загадочное число " + (num > secretNum ? "меньше " : "больше ") + num);
+		return false;
+	}
+
+	private void printEnteredNumbers(int[] numbers) {
+		String result = "";
+		for(int num : numbers) {
+			result += Integer.toString(num) + " ";
 		}
-		System.out.print("\n");
+		System.out.print(result.substring(0, result.length() - 1) + "\n");
 	}
 }
