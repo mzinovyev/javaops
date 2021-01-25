@@ -63,10 +63,9 @@ public class GuessNumber {
 	}
 
 	private void printEnteredNumbers(int[] numbers) {
-		String result = "";
 		for(int num : numbers) {
-			result += Integer.toString(num) + " ";
+			System.out.println(num + " ");
 		}
-		System.out.print(result.substring(0, result.length() - 1) + "\n");
+		System.out.print("\n");
 	}
 }
